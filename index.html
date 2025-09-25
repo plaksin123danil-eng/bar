@@ -1,0 +1,1013 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Shelter - Премиальный бар в Волгограде</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <style>
+      /* Базовые стили */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      :root {
+        --primary: #c9a035;
+        --dark: #121212;
+        --darker: #0a0a0a;
+        --light: #f5f5f5;
+        --gray: #2c2c2c;
+        --transition: all 0.3s ease;
+      }
+
+      body {
+        background-color: var(--dark);
+        color: var(--light);
+        line-height: 1.6;
+        overflow-x: hidden;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      section {
+        padding: 80px 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        font-weight: 700;
+        line-height: 1.2;
+      }
+
+      h1 {
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+      }
+
+      h2 {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        text-align: center;
+      }
+
+      h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--primary);
+      }
+
+      p {
+        margin-bottom: 1.5rem;
+      }
+
+      .btn {
+        display: inline-block;
+        background-color: var(--primary);
+        color: var(--darker);
+        padding: 12px 30px;
+        text-decoration: none;
+        border-radius: 30px;
+        font-weight: 600;
+        transition: var(--transition);
+        border: 2px solid var(--primary);
+        cursor: pointer;
+      }
+
+      .btn:hover {
+        background-color: transparent;
+        color: var(--primary);
+      }
+
+      .btn-outline {
+        background-color: transparent;
+        color: var(--primary);
+      }
+
+      .btn-outline:hover {
+        background-color: var(--primary);
+        color: var(--darker);
+      }
+
+      .text-center {
+        text-align: center;
+      }
+
+      /* Шапка */
+      header {
+        background-color: rgba(18, 18, 18, 0.95);
+        padding: 20px 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .header-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 28px;
+        font-weight: 700;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+      }
+
+      .logo i {
+        margin-right: 10px;
+      }
+
+      nav ul {
+        display: flex;
+        list-style: none;
+      }
+
+      nav ul li {
+        margin-left: 30px;
+      }
+
+      nav ul li a {
+        color: var(--light);
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        position: relative;
+      }
+
+      nav ul li a:after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background-color: var(--primary);
+        transition: var(--transition);
+      }
+
+      nav ul li a:hover {
+        color: var(--primary);
+      }
+
+      nav ul li a:hover:after {
+        width: 100%;
+      }
+
+      /* Герой секция */
+      .hero {
+        height: 100vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+          url(d39e1ad5-d7b6-46b5-a81e-4dc3a4f685da.jpg) no-repeat center
+            center/cover;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        padding-top: 80px;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        margin: 0 auto;
+      }
+
+      .hero-content h1 {
+        animation: fadeInDown 1s ease;
+      }
+
+      .hero-content p {
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        animation: fadeInUp 1s ease;
+      }
+
+      .hero-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        animation: fadeIn 1.5s ease;
+      }
+
+      /* О баре */
+      .about-content {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 40px;
+      }
+
+      .about-text {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .about-image {
+        flex: 1;
+        min-width: 300px;
+        position: relative;
+      }
+
+      .about-image img {
+        width: 100%;
+        border-radius: 10px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        transition: var(--transition);
+      }
+
+      .about-image:hover img {
+        transform: translateY(-10px);
+      }
+
+      .social-links-about {
+        margin-top: 20px;
+        display: flex;
+        gap: 15px;
+      }
+
+      .social-links-about a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: var(--gray);
+        color: var(--light);
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 20px;
+        transition: var(--transition);
+      }
+
+      .social-links-about a:hover {
+        background-color: var(--primary);
+        color: var(--darker);
+        transform: translateY(-5px);
+      }
+
+      /* Мероприятия */
+      .events-list {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+        gap: 30px;
+      }
+
+      .event {
+        background: linear-gradient(
+          to bottom right,
+          var(--gray),
+          var(--darker)
+        );
+        padding: 30px;
+        border-radius: 10px;
+        transition: var(--transition);
+        border: 1px solid rgba(201, 160, 53, 0.2);
+      }
+
+      .event:hover {
+        transform: translateY(-5px);
+        border-color: var(--primary);
+      }
+
+      .event-date {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: var(--primary);
+        display: flex;
+        align-items: center;
+      }
+
+      .event-date i {
+        margin-right: 10px;
+      }
+
+      /* Контакты */
+      .contact {
+        background-color: var(--gray);
+      }
+
+      .contact-info {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        gap: 40px;
+      }
+
+      .contact-details,
+      .map {
+        flex: 1;
+        min-width: 300px;
+      }
+
+      .contact-details p {
+        margin-bottom: 20px;
+        display: flex;
+        align-items: center;
+      }
+
+      .contact-details i {
+        color: var(--primary);
+        margin-right: 15px;
+        font-size: 20px;
+        width: 30px;
+      }
+
+      .phone-link {
+        color: var(--light);
+        text-decoration: none;
+        transition: var(--transition);
+      }
+
+      .phone-link:hover {
+        color: var(--primary);
+      }
+
+      .map iframe {
+        width: 100%;
+        height: 350px;
+        border: none;
+        border-radius: 10px;
+      }
+
+      /* Футер */
+      footer {
+        background-color: var(--darker);
+        padding: 50px 0 20px;
+        text-align: center;
+      }
+
+      .social-links {
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+      }
+
+      .social-links a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 50px;
+        height: 50px;
+        background-color: var(--gray);
+        color: var(--light);
+        border-radius: 50%;
+        text-decoration: none;
+        font-size: 20px;
+        transition: var(--transition);
+      }
+
+      .social-links a:hover {
+        background-color: var(--primary);
+        color: var(--darker);
+        transform: translateY(-5px);
+      }
+
+      .hours {
+        margin-bottom: 30px;
+      }
+
+      .hours h3 {
+        margin-bottom: 20px;
+      }
+
+      .hours p {
+        margin-bottom: 5px;
+      }
+
+      .copyright {
+        padding-top: 20px;
+        border-top: 1px solid var(--gray);
+        color: #888;
+      }
+
+      /* Страница меню */
+      .menu-page {
+        display: none;
+        padding: 100px 0;
+        min-height: 100vh;
+      }
+
+      .menu-container {
+        max-width: 1000px;
+        margin: 0 auto;
+      }
+
+      .menu-categories {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 15px;
+        margin-bottom: 40px;
+      }
+
+      .category-btn {
+        background-color: var(--gray);
+        color: var(--light);
+        border: none;
+        padding: 10px 20px;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: var(--transition);
+      }
+
+      .category-btn.active,
+      .category-btn:hover {
+        background-color: var(--primary);
+        color: var(--darker);
+      }
+
+      .menu-items {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 30px;
+      }
+
+      .menu-item {
+        background-color: rgba(44, 44, 44, 0.8);
+        padding: 30px;
+        border-radius: 10px;
+        text-align: center;
+        transition: var(--transition);
+        backdrop-filter: blur(5px);
+        border: 1px solid rgba(201, 160, 53, 0.2);
+      }
+
+      .menu-item:hover {
+        transform: translateY(-10px);
+        border-color: var(--primary);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+      }
+
+      .menu-item i {
+        font-size: 40px;
+        color: var(--primary);
+        margin-bottom: 20px;
+      }
+
+      .price {
+        font-weight: bold;
+        color: var(--primary);
+        font-size: 1.5rem;
+        display: block;
+        margin-top: 15px;
+      }
+
+      .back-btn {
+        margin-bottom: 40px;
+        display: inline-flex;
+        align-items: center;
+      }
+
+      .back-btn i {
+        margin-right: 10px;
+      }
+
+      /* Анимации */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-20px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Адаптивность */
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 2.5rem;
+        }
+
+        h2 {
+          font-size: 2rem;
+        }
+
+        .header-content {
+          flex-direction: column;
+        }
+
+        nav ul {
+          margin-top: 20px;
+        }
+
+        nav ul li {
+          margin: 0 10px;
+        }
+
+        .hero-buttons {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .about-content {
+          flex-direction: column;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Шапка -->
+    <header>
+      <div class="container header-content">
+        <div class="logo">
+          <i class="fas fa-cocktail"></i>
+          <span>Shelter</span>
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <a href="#" onclick="showSection('about'); return false;"
+                >О нас</a
+              >
+            </li>
+            <li><a href="#" onclick="showMenu(); return false;">Меню</a></li>
+
+            <li>
+              <a href="#" onclick="showSection('contact'); return false;"
+                >Контакты</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Главная страница -->
+    <div id="main-content">
+      <!-- Герой секция -->
+      <section class="hero">
+        <div class="container hero-content">
+          <h1>Shelter</h1>
+          <p>
+            Премиальный бар с авторскими коктейлями и неповторимой атмосферой в
+            Волгограде
+          </p>
+          <div class="hero-buttons">
+            <a href="#" onclick="showMenu(); return false;" class="btn"
+              >Посмотреть меню</a
+            >
+            <a
+              href="https://t.me/GGWP_lounge_bar_bot"
+              target="_blank"
+              class="btn btn-outline"
+              >Забронировать столик</a
+            >
+          </div>
+        </div>
+      </section>
+
+      <!-- О баре -->
+      <section id="about">
+        <div class="container">
+          <h2>О нашем баре</h2>
+          <div class="about-content">
+            <div class="about-text">
+              <p>
+                Shelter — это место, где встречаются изысканность и
+                непринужденная атмосфера. Мы создали пространство, где каждый
+                гость может насладиться искусством миксологии в комфортной
+                обстановке.
+              </p>
+              <p>
+                Наши бармены — настоящие мастера своего дела, которые превращают
+                создание коктейлей в искусство. Мы используем только премиальные
+                ингредиенты: отборные спиртные напитки, свежие фрукты и
+                авторские сиропы собственного приготовления.
+              </p>
+              <p>
+                Интерьер бара сочетает в себе элегантность и уют. Приглушенный
+                свет, удобные кресла, живая музыку по вечерам — все это создает
+                особую атмосферу, которая заставляет возвращаться снова и снова.
+              </p>
+              <p>Подписывайтесь на нас в соцсетях:</p>
+              <div class="social-links-about">
+                <a href="https://vk.com/ggwp_vlg34" target="_blank"
+                  ><i class="fab fa-vk"></i
+                ></a>
+                <a
+                  href="https://instagram.com/34ggwp?igshid=MzNlNGNkZWQ4Mg=="
+                  target="_blank"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+              </div>
+            </div>
+            <div class="about-image">
+              <img
+                src="317039ba-2867-4c82-a36c-07b2e8de9d35.jpg"
+                alt="Интерьер бара"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Контакты -->
+      <section id="contact" class="contact">
+        <div class="container">
+          <h2>Контакты</h2>
+          <div class="contact-info">
+            <div class="contact-details">
+              <p>
+                <i class="fas fa-map-marker-alt"></i><strong>Адрес:</strong> г.
+                Волгоград, ул. Набережная, 15
+              </p>
+              <p>
+                <i class="fas fa-phone"></i><strong>Телефон:</strong>
+                <a href="tel:+79996271368" class="phone-link"
+                  >+7 (999) 627-13-68</a
+                >,
+                <a href="tel:+79880179280" class="phone-link"
+                  >+7 (988) 017-92-80</a
+                >
+              </p>
+              <p>
+                <i class="fas fa-clock"></i><strong>Часы работы:</strong> Вс-Чт:
+                18:00 - 02:00, Пт-Сб: 18:00 - 06:00
+              </p>
+              <p>
+                <i class="fas fa-concierge-bell"></i>Для бронирования столика
+                звоните по указанному телефону, пишите в
+                <a
+                  href="https://t.me/GGWP_lounge_bar_bot"
+                  target="_blank"
+                  style="color: var(--primary)"
+                  >Telegram</a
+                >
+                или в соцсетях.
+              </p>
+            </div>
+            <div class="map">
+              <iframe
+                src="https://yandex.ru/map-widget/v1/?um=constructor%3A0b7c92ff8b2b2d6a9b1c2c6c6d2e6c6b5a1c2c6c6d2e6c6b5a1c2c6c6d2e6c6b5a1&amp;source=constructor"
+                frameborder="0"
+              ></iframe>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Футер -->
+      <footer>
+        <div class="container">
+          <div class="social-links">
+            <a href="https://vk.com/ggwp_vlg34" target="_blank"
+              ><i class="fab fa-vk"></i
+            ></a>
+            <a
+              href="https://instagram.com/34ggwp?igshid=MzNlNGNkZWQ4Mg=="
+              target="_blank"
+              ><i class="fab fa-instagram"></i
+            ></a>
+            <a href="https://t.me/GGWP_lounge_bar_bot" target="_blank"
+              ><i class="fab fa-telegram"></i
+            ></a>
+          </div>
+          <div class="hours">
+            <h3>Часы работы</h3>
+            <p>Воскресенье - Четверг: 18:00 - 02:00</p>
+            <p>Пятница - Суббота: 18:00 - 06:00</p>
+          </div>
+          <p class="copyright">&copy; 2023 Shelter. Все права защищены.</p>
+        </div>
+      </footer>
+    </div>
+
+    <!-- Страница меню -->
+    <div id="menu-page" class="menu-page">
+      <div class="container menu-container">
+        <a href="#" onclick="showMain(); return false;" class="btn back-btn"
+          ><i class="fas fa-arrow-left"></i> На главную</a
+        >
+        <h2>Наше меню</h2>
+
+        <div class="menu-categories">
+          <button class="category-btn active" onclick="filterMenu('all')">
+            Все позиции
+          </button>
+          <button class="category-btn" onclick="filterMenu('alcohol')">
+            Алкогольные коктейли
+          </button>
+          <button class="category-btn" onclick="filterMenu('shots')">
+            Шоты
+          </button>
+          <button class="category-btn" onclick="filterMenu('lemonade')">
+            Лимонады
+          </button>
+          <button class="category-btn" onclick="filterMenu('tea')">Чай</button>
+          <button class="category-btn" onclick="filterMenu('beer')">
+            Пиво
+          </button>
+          <button class="category-btn" onclick="filterMenu('drinks')">
+            Напитки
+          </button>
+          <button class="category-btn" onclick="filterMenu('coffee')">
+            Кофе
+          </button>
+        </div>
+
+        <div class="menu-items">
+          <!-- Алкогольные коктейли -->
+          <div class="menu-item" data-category="alcohol">
+            <i class="fas fa-cocktail"></i>
+            <h3>Виски/Ром-сауэр</h3>
+            <p>
+              Освежающий коктейль на основе виски или рома с содовой и
+              цитрусовыми
+            </p>
+            <span class="price">550 ₽</span>
+          </div>
+          <div class="menu-item" data-category="alcohol">
+            <i class="fas fa-cocktail"></i>
+            <h3>Лонг Айленд</h3>
+            <p>Классический крепкий коктейль из пяти видов алкоголя с колой</p>
+            <span class="price">600 ₽</span>
+          </div>
+          <div class="menu-item" data-category="alcohol">
+            <i class="fas fa-cocktail"></i>
+            <h3>Том Коллинз</h3>
+            <p>
+              Освежающий коктейль на основе джина с лимонным соком и содовой
+            </p>
+            <span class="price">500 ₽</span>
+          </div>
+          <div class="menu-item" data-category="alcohol">
+            <i class="fas fa-cocktail"></i>
+            <h3>Френч 75</h3>
+            <p>
+              Элегантный коктейль из джина, игристого вина, лимонного соком и
+              сахара
+            </p>
+            <span class="price">500 ₽</span>
+          </div>
+          <div class="menu-item" data-category="alcohol">
+            <i class="fas fa-cocktail"></i>
+            <h3>Крестный отец</h3>
+            <p>Крепкий коктейль из скотча и амаретто</p>
+            <span class="price">600 ₽</span>
+          </div>
+          <div class="menu-item" data-category="alcohol">
+            <i class="fas fa-cocktail"></i>
+            <h3>Джин тоник</h3>
+            <p>Классический освежающий коктейль из джина и тоника с лаймом</p>
+            <span class="price">500 ₽</span>
+          </div>
+          <div class="menu-item" data-category="alcohol">
+            <i class="fas fa-cocktail"></i>
+            <h3>Мартини Фиеро</h3>
+            <p>
+              Современный вариант мартини с итальянским апельсиновым ликером
+            </p>
+            <span class="price">500 ₽</span>
+          </div>
+          <div class="menu-item" data-category="alcohol">
+            <i class="fas fa-cocktail"></i>
+            <h3>Энджел Фейс</h3>
+            <p>Нежный коктейль с джином, абрикосовым бренди и лимонным соком</p>
+            <span class="price">550 ₽</span>
+          </div>
+          <div class="menu-item" data-category="alcohol">
+            <i class="fas fa-cocktail"></i>
+            <h3>Дайкири</h3>
+            <p>Классический кубинский коктейль из рома, лайма и сахара</p>
+            <span class="price">500 ₽</span>
+          </div>
+          <div class="menu-item" data-category="alcohol">
+            <i class="fas fa-cocktail"></i>
+            <h3>Апероль</h3>
+            <p>
+              Популярный итальянский коктейль с аперолем, просекко и содовой
+            </p>
+            <span class="price">500 ₽</span>
+          </div>
+          <div class="menu-item" data-category="alcohol">
+            <i class="fas fa-cocktail"></i>
+            <h3>Негрони</h3>
+            <p>Классический итальянский коктейль из джина, вермута и кампари</p>
+            <span class="price">550 ₽</span>
+          </div>
+
+          <!-- Шоты -->
+          <div class="menu-item" data-category="shots">
+            <i class="fas fa-glass-shot"></i>
+            <h3>Шоты Физ</h3>
+            <p>Набор из 4 шотов с игристой текстурой</p>
+            <span class="price">700 ₽</span>
+          </div>
+          <div class="menu-item" data-category="shots">
+            <i class="fas fa-glass-shot"></i>
+            <h3>Шоты Мохитоски</h3>
+            <p>Набор из 4 шотов со вкусом мохито</p>
+            <span class="price">700 ₽</span>
+          </div>
+          <div class="menu-item" data-category="shots">
+            <i class="fas fa-glass-shot"></i>
+            <h3>Шоты Поцелуй Гринча</h3>
+            <p>Набор из 4 шотов с мятным вкусом</p>
+            <span class="price">700 ₽</span>
+          </div>
+
+          <!-- Лимонады -->
+          <div class="menu-item" data-category="lemonade">
+            <i class="fas fa-glass-whiskey"></i>
+            <h3>Лимонад Ягодный</h3>
+            <p>Освежающий лимонад с ягодным миксом</p>
+            <span class="price">350 ₽</span>
+          </div>
+          <div class="menu-item" data-category="lemonade">
+            <i class="fas fa-glass-whiskey"></i>
+            <h3>Лимонад Мохито</h3>
+            <p>Безалкогольная версия классического мохито</p>
+            <span class="price">350 ₽</span>
+          </div>
+          <div class="menu-item" data-category="lemonade">
+            <i class="fas fa-glass-whiskey"></i>
+            <h3>Лимонад Маракуйя-груша</h3>
+            <p>Экзотическое сочетание маракуйи и груши</p>
+            <span class="price">350 ₽</span>
+          </div>
+          <div class="menu-item" data-category="lemonade">
+            <i class="fas fa-glass-whiskey"></i>
+            <h3>Лимонад Имбирный</h3>
+            <p>Пряный лимонад с имбирем и лимоном</p>
+            <span class="price">350 ₽</span>
+          </div>
+          <div class="menu-item" data-category="lemonade">
+            <i class="fas fa-glass-whiskey"></i>
+            <h3>Лимонад Грин Тини</h3>
+            <p>Освежающий зеленый чай с мятой и лаймом</p>
+            <span class="price">350 ₽</span>
+          </div>
+
+          <!-- Чай -->
+          <div class="menu-item" data-category="tea">
+            <i class="fas fa-mug-hot"></i>
+            <h3>Чай Сенча</h3>
+            <p>Японский зеленый чай 0.5 л</p>
+            <span class="price">350 ₽</span>
+          </div>
+
+          <!-- Пиво -->
+          <div class="menu-item" data-category="beer">
+            <i class="fas fa-beer"></i>
+            <h3>Пиво бутылочное</h3>
+            <p>Ассортимент крафтового пива</p>
+            <span class="price">400 ₽</span>
+          </div>
+
+          <!-- Напитки -->
+          <div class="menu-item" data-category="drinks">
+            <i class="fas fa-wine-bottle"></i>
+            <h3>Кола</h3>
+            <p>Освежающий газированный напиток</p>
+            <span class="price">200 ₽</span>
+          </div>
+          <div class="menu-item" data-category="drinks">
+            <i class="fas fa-wine-bottle"></i>
+            <h3>Тоник</h3>
+            <p>Газированный тонизирующий напиток</p>
+            <span class="price">200 ₽</span>
+          </div>
+          <div class="menu-item" data-category="drinks">
+            <i class="fas fa-bolt"></i>
+            <h3>Энергетик</h3>
+            <p>Энергетический напиток</p>
+            <span class="price">250 ₽</span>
+          </div>
+          <div class="menu-item" data-category="drinks">
+            <i class="fas fa-wine-bottle"></i>
+            <h3>Вода с/г / б/г</h3>
+            <p>Минеральная вода газированная или без газа</p>
+            <span class="price">200 ₽</span>
+          </div>
+          <div class="menu-item" data-category="drinks">
+            <i class="fas fa-glass"></i>
+            <h3>Фруктовый сок на выбор</h3>
+            <p>Сок 0.2</p>
+            <span class="price">150 ₽</span>
+          </div>
+
+          <!-- Кофе -->
+          <div class="menu-item" data-category="coffee">
+            <i class="fas fa-coffee"></i>
+            <h3>Эспрессо</h3>
+            <p>Классический крепкий кофе</p>
+            <span class="price">150 ₽</span>
+          </div>
+          <div class="menu-item" data-category="coffee">
+            <i class="fas fa-coffee"></i>
+            <h3>Американо</h3>
+            <p>Черный кофе с добавлением воды</p>
+            <span class="price">150 ₽</span>
+          </div>
+          <div class="menu-item" data-category="coffee">
+            <i class="fas fa-coffee"></i>
+            <h3>Капучино</h3>
+            <p>Кофе с молочной пенкой</p>
+            <span class="price">200 ₽</span>
+          </div>
+          <div class="menu-item" data-category="coffee">
+            <i class="fas fa-coffee"></i>
+            <h3>Латте</h3>
+            <p>Кофе с большим количеством молока</p>
+            <span class="price">200 ₽</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // Функция для показа главной страницы
+      function showMain() {
+        document.getElementById("main-content").style.display = "block";
+        document.getElementById("menu-page").style.display = "none";
+        window.scrollTo(0, 0);
+      }
+
+      // Функция для показа страницы меню
+      function showMenu() {
+        document.getElementById("main-content").style.display = "none";
+        document.getElementById("menu-page").style.display = "block";
+        window.scrollTo(0, 0);
+      }
+
+      // Функция для показа определенной секции на главной странице
+      function showSection(sectionId) {
+        document.getElementById("main-content").style.display = "block";
+        document.getElementById("menu-page").style.display = "none";
+
+        const element = document.getElementById(sectionId);
+        if (element) {
+          window.scrollTo({
+            top: element.offsetTop - 80,
+            behavior: "smooth",
+          });
+        }
+      }
+
+      // Функция для фильтрации меню
+      function filterMenu(category) {
+        const items = document.querySelectorAll(".menu-item");
+        const buttons = document.querySelectorAll(".category-btn");
+
+        // Убираем активный класс у всех кнопок и добавляем текущей
+        buttons.forEach((btn) => btn.classList.remove("active"));
+        event.target.classList.add("active");
+
+        // Показываем/скрываем элементы меню в зависимости от категории
+        items.forEach((item) => {
+          if (
+            category === "all" ||
+            item.getAttribute("data-category") === category
+          ) {
+            item.style.display = "block";
+          } else {
+            item.style.display = "none";
+          }
+        });
+      }
+
+      // Инициализация меню при загрузке страницы
+      document.addEventListener("DOMContentLoaded", function () {
+        // Показываем главную страницу
+        showMain();
+      });
+    </script>
+  </body>
+</html>
